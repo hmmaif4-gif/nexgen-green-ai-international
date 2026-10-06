@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="NEXGEN GREEN AI - premium AI assistant" />
+    <meta name="theme-color" content="#0b1320" />
+    <title>NEXGEN GREEN AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand-row">
+          <div class="brand-mark">N</div>
+          <div class="brand-copy">
+            <div class="brand-name">NEXGEN GREEN AI</div>
+            <div class="brand-subtitle">Intelligent Assistant</div>
+          </div>
+        </div>
+
+        <button class="primary-btn new-chat-btn" id="new-chat-btn" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+          নতুন চ্যাট
+        </button>
+
+        <div class="sidebar-section-title">সাম্প্রতিক চ্যাট</div>
+        <div class="history-list" id="history-list"></div>
+
+        <div class="sidebar-footer">
+          <span class="online-dot"></span>
+          <span>AI Gateway Online</span>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="icon-button mobile-only" id="sidebar-toggle" type="button" aria-label="Toggle sidebar">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+            </button>
+            <div class="mini-brand">
+              <div class="mini-brand-mark">N</div>
+              <div>
+                <div class="mini-brand-name">NEXGEN GREEN AI</div>
+                <div class="mini-brand-meta">Gemini-ready assistant</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="topbar-actions">
+            <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle theme">
+              <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2.5M12 18.5V21M5.64 5.64l1.77 1.77M16.59 16.59l1.77 1.77M3 12h2.5M18.5 12H21M5.64 18.36l1.77-1.77M16.59 7.41l1.77-1.77M12 7.5A4.5 4.5 0 1 1 12 16.5A4.5 4.5 0 0 1 12 7.5Z" /></svg>
+              <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 0 1 11.21 3a9 9 0 1 0 9.79 9.79Z" /></svg>
+            </button>
+            <button class="icon-button" id="clear-chat" type="button" aria-label="Clear chat">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v5M14 11v5" /></svg>
+            </button>
+          </div>
+        </header>
+
+        <section class="chat-panel" id="chat-panel">
+          <div class="welcome-screen" id="welcome-screen">
+            <div class="welcome-icon">N</div>
+            <h1>কীভাবে সাহায্য করতে পারি?</h1>
+            <p>
+              প্রশ্ন করুন, কোড লিখুন, ধারণা তৈরি করুন, বা সহজ ভাষায় নতুন কিছু শেখার জন্য
+              আমাকে জিজ্ঞেস করুন।
+            </p>
+
+            <div class="suggestion-grid">
+              <button class="suggestion-card" type="button" data-prompt="আমাকে Python programming সহজ ভাষায় শেখাও">
+                <span class="card-icon">⌘</span>
+                <span>Python শেখাও</span>
+              </button>
+              <button class="suggestion-card" type="button" data-prompt="একটি সুন্দর বাংলা কবিতা লেখো">
+                <span class="card-icon">✒</span>
+                <span>কবিতা লেখো</span>
+              </button>
+              <button class="suggestion-card" type="button" data-prompt="Artificial Intelligence সহজভাবে বুঝিয়ে বলো">
+                <span class="card-icon">⚙</span>
+                <span>AI বুঝিয়ে বলো</span>
+              </button>
+              <button class="suggestion-card" type="button" data-prompt="আমার জন্য একটি ওয়েবসাইটের আইডিয়া দাও">
+                <span class="card-icon">✦</span>
+                <span>Website idea</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="messages" id="messages" aria-live="polite"></div>
+        </section>
+
+        <footer class="composer-wrap">
+          <div class="composer" id="composer">
+            <textarea id="message-input" rows="1" maxlength="12000" placeholder="আপনার প্রশ্ন লিখুন..." aria-label="আপনার প্রশ্ন"></textarea>
+            <button class="stop-btn" id="stop-btn" type="button" aria-label="Stop generation">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2" /></svg>
+            </button>
+            <button class="send-btn" id="send-btn" type="button" aria-label="Send message">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 20 3l-4.5 17-3.5-6.5L3 11.5Z" /></svg>
+            </button>
+          </div>
+          <div class="composer-meta">
+            <span>Enter = Send · Shift + Enter = New line</span>
+            <span id="char-counter">0 / 12000</span>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" aria-live="assertive"></div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "nexgen-green-ai-international",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npx netlify dev",
+    "start": "npx serve .",
+    "build": "echo 'Static site. No build step required.'"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.34.3",
+    "serve": "^14.2.1"
+  }
+}
